@@ -51,16 +51,16 @@ uv run python main.py
          "args": [
            "run",
            "python",
-           "/Volumes/Workspace/agent-state/main.py"
+           "[install directory]/agent-state/main.py"
          ],
-         "cwd": "/Volumes/Workspace/agent-state"
+         "cwd": "[install directory]/agent-state"
        }
      }
    }
    ```
 
 3. **Important**: Update the paths in the configuration:
-   - Replace `/Volumes/Workspace/agent-state` with the absolute path to this project on your system
+   - Replace `[install directory]/agent-state` with the absolute path to this project on your system
    - Ensure the path uses forward slashes on all platforms
 
 4. Restart Claude Desktop for the changes to take effect.
@@ -82,16 +82,16 @@ uv run python main.py
          "args": [
            "run",
            "python",
-           "/Volumes/Workspace/agent-state/main.py"
+           "[install directory]/agent-state/main.py"
          ],
-         "cwd": "/Volumes/Workspace/agent-state"
+         "cwd": "[install directory]/agent-state"
        }
      }
    }
    ```
 
 4. **Important**: Update the paths in the configuration:
-   - Replace `/Volumes/Workspace/agent-state` with the absolute path to this project on your system
+   - Replace `[install directory]/agent-state` with the absolute path to this project on your system
    - Use forward slashes for paths even on Windows
 
 5. Restart Cursor for the changes to take effect.
