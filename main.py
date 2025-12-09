@@ -5,31 +5,26 @@ from pathlib import Path
 from fastmcp import FastMCP
 
 INSTRUCTIONS = """
-This MCP server provides state and log management tools for long-lived agents.
+State and log management for long-lived agents that may be interrupted for subsequent agents to
+resume the work.
 
-IMPORTANT: All tools require a `directory` parameter as the first argument. This
-must be the absolute path to the GitHub worktree or GitHub repository directory
-where you want the state and log files to be saved.
+REQUIRED: All tools take `directory` as the first parameter - the absolute path
+to your GitHub worktree or repository.
 
 State Management: - State represents what the agent is currently trying to do
-and is updated as the agent progresses - The state file (.agent-state.txt) is
-replaced each time it's updated - Use update_state(directory, state) to save the
-current state - Use load_state(directory) to retrieve it
+and is updated as the agent progresses
 
-Log Management: - The log file (.agent-log.txt) is an append-only history of
-what the agent has been doing - Use log_event(directory, message) to append new
-events to the log - Use load_log(directory, num_chars) to retrieve the most
-recent log entries
+Log Management: - The log file is an append-only history of what the agent has been doing
 
-This is designed for agents that may be interrupted, allowing future agent
-sessions to continue where previous sessions left off by loading the state and
-reviewing recent log entries.
+Tools:
+- update_state(directory, state) - Save (replaces) current state
+- load_state(directory) - Load saved state
+- log_event(directory, message) - Append event to log
+- load_log(directory, num_chars) - Load last N characters from log
 
-Example usage:
-- update_state("/path/to/your/worktree", "Working on feature X")
-- load_state("/path/to/your/worktree")
-- log_event("/path/to/your/worktree", "Completed step 1")
-- load_log("/path/to/your/worktree", 1000)
+Files saved in directory: .agent-state.txt (state), .agent-log.txt (log)
+
+Example: update_state("/path/to/worktree", "Working on feature X")
 """.strip()
 
 # Create the MCP server instance
