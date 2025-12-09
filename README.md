@@ -1,10 +1,11 @@
-# Addition MCP Server
+# Agent State MCP Server
 
-A simple Model Context Protocol (MCP) server built with FastMCP that provides an addition tool.
+A Model Context Protocol (MCP) server built with FastMCP that provides agent state and log management tools for long-lived agents that may be interrupted and resumed.
 
 ## Features
 
-- Addition tool that adds two numbers together
+- State management tools for tracking agent progress
+- Log management tools for maintaining append-only event history
 - Built with FastMCP for easy MCP server development
 - Type-safe Python code with proper type hints
 
@@ -46,7 +47,7 @@ uv run python main.py
    ```json
    {
      "mcpServers": {
-       "addition-mcp": {
+       "agent-state": {
          "command": "uv",
          "args": [
            "run",
@@ -76,7 +77,7 @@ uv run python main.py
    ```json
    {
      "mcp.servers": {
-       "addition-mcp": {
+       "agent-state {
          "command": "uv",
          "args": [
            "run",
@@ -126,7 +127,7 @@ If you prefer to use the virtual environment's Python directly:
 
 ### Project Structure
 
-- `main.py` - Main MCP server with addition tool
+- `main.py` - Main MCP server with agent state and log management tools
 - `AGENTS.md` - Coding style guidelines for this project
 - `pyproject.toml` - Project configuration and dependencies
 
