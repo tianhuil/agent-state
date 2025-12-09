@@ -1,0 +1,27 @@
+[project]
+name = "agent-state"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "fastmcp>=2.13.3",
+]
+
+[dependency-groups]
+dev = [
+    "poethepoet>=0.38.0",
+    "pyright>=1.1.407",
+    "pytest>=9.0.2",
+    "ruff>=0.14.8",
+]
+
+[tool.poe.tasks]
+test = "pytest"
+lint = "ruff check ."
+format = "ruff format ."
+typecheck = "pyright"
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
