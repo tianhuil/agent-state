@@ -52,8 +52,7 @@ uv run python main.py
            "run",
            "python",
            "[install directory]/agent-state/main.py"
-         ],
-         "cwd": "[install directory]/agent-state"
+         ]
        }
      }
    }
@@ -83,8 +82,7 @@ uv run python main.py
            "run",
            "python",
            "[install directory]/agent-state/main.py"
-         ],
-         "cwd": "[install directory]/agent-state"
+         ]
        }
      }
    }
