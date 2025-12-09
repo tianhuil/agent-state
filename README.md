@@ -77,7 +77,7 @@ uv run python main.py
    ```json
    {
      "mcp.servers": {
-       "agent-state {
+       "agent-state": {
          "command": "uv",
          "args": [
            "run",
