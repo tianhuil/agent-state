@@ -4,32 +4,31 @@ from pathlib import Path
 
 from fastmcp import FastMCP
 
-INSTRUCTIONS = """This MCP server provides state and log management tools for long-lived agents.
+INSTRUCTIONS = """
+This MCP server provides state and log management tools for long-lived agents.
 
-IMPORTANT: All tools require a `directory` parameter as the first argument.
-This must be the absolute path to the GitHub worktree or GitHub repository directory
+IMPORTANT: All tools require a `directory` parameter as the first argument. This
+must be the absolute path to the GitHub worktree or GitHub repository directory
 where you want the state and log files to be saved.
 
-State Management:
-- State represents what the agent is currently trying to do and is updated as the agent progresses
-- The state file (.agent-state.txt) is replaced each time it's updated
-- Use update_state(directory, state) to save the current state
-- Use load_state(directory) to retrieve it
+State Management: - State represents what the agent is currently trying to do
+and is updated as the agent progresses - The state file (.agent-state.txt) is
+replaced each time it's updated - Use update_state(directory, state) to save the
+current state - Use load_state(directory) to retrieve it
 
-Log Management:
-- The log file (.agent-log.txt) is an append-only history of what the agent has been doing
-- Use log_event(directory, message) to append new events to the log
-- Use load_log(directory, num_chars) to retrieve the most recent log entries
+Log Management: - The log file (.agent-log.txt) is an append-only history of
+what the agent has been doing - Use log_event(directory, message) to append new
+events to the log - Use load_log(directory, num_chars) to retrieve the most
+recent log entries
 
 This is designed for agents that may be interrupted, allowing future agent
 sessions to continue where previous sessions left off by loading the state and
 reviewing recent log entries.
 
-Example usage:
-- update_state("/path/to/your/worktree", "Working on feature X")
-- load_state("/path/to/your/worktree")
-- log_event("/path/to/your/worktree", "Completed step 1")
-- load_log("/path/to/your/worktree", 1000)"""
+Example usage: - update_state("/path/to/your/worktree", "Working on feature X")
+- load_state("/path/to/your/worktree") - log_event("/path/to/your/worktree",
+"Completed step 1") - load_log("/path/to/your/worktree", 1000)
+""".strip()
 
 # Create the MCP server instance
 mcp = FastMCP("Agent State MCP Server", instructions=INSTRUCTIONS)
