@@ -14,12 +14,12 @@ to your GitHub worktree or repository.
 State Management: - State represents what the agent is currently trying to do
 and is updated as the agent progresses
 
-Log Management: - The log file is an append-only history of what the agent has been doing
+Log Management: - The log file is an append-only log of information a subsequent agent should know
 
 Tools:
 - update_state(directory, state) - Save (replaces) current state
 - load_state(directory) - Load saved state
-- log_event(directory, message) - Append event to log
+- log_message(directory, message) - Append a message to the log
 - load_log(directory, num_chars) - Load last N characters from log
 
 Files saved in directory: .agent-state.txt (state), .agent-log.txt (log)
@@ -110,13 +110,13 @@ def load_state(directory: str) -> str:
 
 
 @mcp.tool()
-def log_event(directory: str, message: str) -> None:
-    """Append an event message to the log file.
+def log_message(directory: str, message: str) -> None:
+    """Append a message to the log file.
 
     Args:
         directory: Absolute path to the GitHub worktree or repository directory
                    where the log file should be saved
-        message: The event message to append to the log
+        message: The message to append to the log
 
     """
     log_file = get_log_file(directory)
