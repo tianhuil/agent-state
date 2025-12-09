@@ -39,3 +39,7 @@ Thumbs.db
 # Project specific
 .python-version
 
+# Agent state and log files
+.agent-state.txt
+.agent-log.txt
+
