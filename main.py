@@ -25,9 +25,11 @@ This is designed for agents that may be interrupted, allowing future agent
 sessions to continue where previous sessions left off by loading the state and
 reviewing recent log entries.
 
-Example usage: - update_state("/path/to/your/worktree", "Working on feature X")
-- load_state("/path/to/your/worktree") - log_event("/path/to/your/worktree",
-"Completed step 1") - load_log("/path/to/your/worktree", 1000)
+Example usage:
+- update_state("/path/to/your/worktree", "Working on feature X")
+- load_state("/path/to/your/worktree")
+- log_event("/path/to/your/worktree", "Completed step 1")
+- load_log("/path/to/your/worktree", 1000)
 """.strip()
 
 # Create the MCP server instance
