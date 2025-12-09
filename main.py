@@ -17,14 +17,14 @@ and is updated as the agent progresses
 Log Management: - The log file is an append-only log of information a subsequent agent should know
 
 Tools:
-- update_state(directory, state) - Save (replaces) current state
-- load_state(directory) - Load saved state
-- log_message(directory, message) - Append a message to the log
-- load_log(directory, num_chars) - Load last N characters from log
+- agent_state_update_state(directory, state) - Save (replaces) current state
+- agent_state_load_state(directory) - Load saved state
+- agent_state_log_message(directory, message) - Append a message to the log
+- agent_state_load_log(directory, num_chars) - Load last N characters from log
 
 Files saved in directory: .agent-state.txt (state), .agent-log.txt (log)
 
-Example: update_state("/path/to/worktree", "Working on feature X")
+Example: agent_state_update_state("/path/to/worktree", "Working on feature X")
 """.strip()
 
 # Create the MCP server instance
@@ -78,7 +78,7 @@ def get_log_file(directory: str) -> Path:
 
 
 @mcp.tool()
-def update_state(directory: str, state: str) -> None:
+def agent_state_update_state(directory: str, state: str) -> None:
     """Update the agent state file, replacing its contents.
 
     Args:
@@ -92,7 +92,7 @@ def update_state(directory: str, state: str) -> None:
 
 
 @mcp.tool()
-def load_state(directory: str) -> str:
+def agent_state_load_state(directory: str) -> str:
     """Load the current agent state from the state file.
 
     Args:
@@ -110,7 +110,7 @@ def load_state(directory: str) -> str:
 
 
 @mcp.tool()
-def log_message(directory: str, message: str) -> None:
+def agent_state_log_message(directory: str, message: str) -> None:
     """Append a message to the log file.
 
     Args:
@@ -125,7 +125,7 @@ def log_message(directory: str, message: str) -> None:
 
 
 @mcp.tool()
-def load_log(directory: str, num_chars: int) -> str:
+def agent_state_load_log(directory: str, num_chars: int) -> str:
     """Load the last num_chars characters from the log file.
 
     Args:
